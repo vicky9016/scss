@@ -1,3 +1,4 @@
+<pre>
 # scss
 Learing SCSS by creating smiple scss file
 
@@ -269,3 +270,4 @@ Order Your Work
 Place all mixins, functions, placeholders and variables in their relevant partial file. Keeping blocks of code together will ensure they are easy to edit and reuse in the future.
 
 Site-wide elements should be kept together in a base folder. The base folder should contain global variables such as fonts and color schemes.
+</pre>

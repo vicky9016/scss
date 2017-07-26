@@ -1,0 +1,156 @@
+/* placeholders color change */
+.class:-moz-placeholder {  /* Mozilla Firefox 4 to 18 */
+	color: #ddd;
+	-webkit-text-shadow: none;
+	text-shadow: none;
+	font-size: 14px;
+	font-weight: 500;
+	font-style: italic;
+}
+
+.class::-webkit-input-placeholder { /* WebKit browsers -(Safari, Google Chrome, Opera 15+)  */
+	color: #ddd;
+	-webkit-text-shadow: none;
+	text-shadow: none;
+	font-size: 14px;
+	font-weight: 500;
+	font-style: italic;
+}
+
+.class::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #ddd;
+	-webkit-text-shadow: none;
+	text-shadow: none;
+	font-size: 14px;
+	font-weight: 500;
+	font-style: italic;
+}
+
+.class::-ms-input-placeholder {  /* Internet Explorer 10+ */
+	color: #ddd;
+	-webkit-text-shadow: none;
+	text-shadow: none;
+	font-size: 14px;
+	font-weight: 600;
+	font-style: italic;
+}
+/* placeholders color change end */
+
+//firefox only
+
+@-moz-document url-prefix() {
+    a {
+        margin: 0;
+    }
+}
+
+//chrome only
+
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+	.suggest-icon-suggestionadd {
+		position: absolute;
+		left: 25px;
+	}
+
+	.suggest-icon-unsuggestion {
+		position: absolute;
+	}
+}
+
+/*horizontal line with text in center*/
+.hl-center-text {
+	font-size: 14px;
+	font-weight: 700;
+	color: #969494;
+	overflow: hidden;
+	text-align: center;
+
+	&:before, &:after {
+		background-color: #969494;
+		content: "";
+		display: inline-block;
+		height: 1px;
+		position: relative;
+		vertical-align: middle;
+		width: 50%;
+	}
+
+	&:before {
+		right: 20px;
+		margin-left: -50%;
+	}
+
+	&:after {
+		left: 20px;
+		margin-right: -50%;
+	}
+}
+
+/* 16:9 video aspect ratio*/
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /*16:9*/
+  padding-top: 30px; 
+  height: 0; 
+  overflow: hidden;
+  
+  video{
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	}
+}
+
+
+/* equal height columns */
+.row.display-flex {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+
+	&:before, &:after {
+		content: normal;
+	}
+  
+  > [class*='col-'] {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -ms-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+}
+
+
+/* equal height columns end */
+
+
+/* scss each */
+
+@each $name, $x, $y in (like-icon, -432px, 0), (unlike-icon, -416px, 0), (rightshare-icon, -449px, 0), (reply-icon, -480px, 0), (newreply-icon, -398px, 0), (share-fbicon, -864px, -64px), (share-twicon, -888px, -16px), (share-liicon, -888px, -64px), (post-typefb, -360px, 0), (post-typetw, -464px, 0), (post-typern, -744px, -16px) {
+	.sp-#{$name} {
+		background: url(/Images/AllCssSprites.png) $x $y;
+	}
+}
+
+@each $name, $x, $y in (facebook, -864px, -64px), (link, -888px, -64px), (twitter, -888px, -16px), (gmail, -912px, -64px) {
+	.DP#{$name}img {
+		background: url(/Images/AllCssSprites.png) $x $y;
+	}
+}
+
+@each $icon, $iconcolor in (facebook: $color_azure_approx, linkedin: $color_deep_cerulean_approx, twitter: $color_picton_blue, google-plus: $color_alizarin_crimson_approx) {
+					.fa-#{$icon}-square {
+						color: $iconcolor;
+					}
+				}
+/* scss each end */

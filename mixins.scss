@@ -1,3 +1,21 @@
+@mixin font($size: false, $weight: false, $colour: false, $lh: false) {
+	@if $size {
+		font-size: $size;
+	}
+
+	@if $weight {
+		font-weight: $weight;
+	}
+
+	@if $colour {
+		color: $colour;
+	}
+
+	@if $lh {
+		line-height: $lh;
+	}
+}
+
 @mixin border-radius($arc) {
 	-moz-border-radius: $arc;
 	-webkit-border-radius: $arc;

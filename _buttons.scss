@@ -1,0 +1,157 @@
+@mixin button-variant($color, $background, $border) {
+	$hover-background: lighten($background, 10%);
+	$hover-border: lighten($border, 10%);
+	$active-background: darken($background, 10%);
+	$active-border: darken($border, 10%);
+
+	color: $color;
+	background-color: $background;
+	border: 1px solid $border;
+	outline: none;
+
+	&:hover, &:focus {
+		color: $color;
+		background-color: $hover-background;
+		border-color: $hover-border;
+		outline: none;
+	}
+
+	&:active {
+		color: $color;
+		background-color: $active-background;
+		border-color: $active-border;
+		outline: none;
+	}
+}
+
+@mixin button-outline-variant($color, $color-hover: #fff) {
+	color: $color;
+	background-image: none;
+	background-color: transparent;
+	border: 1px solid $color;
+	outline: none;
+
+	&:hover, &:focus, &:active {
+		color: $color-hover;
+		background-color: $color;
+		border-color: $color;
+		outline: none;
+	}
+}
+
+[class^="btn"] {
+	display: inline-block;
+	cursor: pointer;
+	font-weight: 700;
+
+	&:focus, &:active:focus {
+		outline: none;
+	}
+
+	&[disabled="disabled"] {
+		opacity: 0.5;
+	}
+}
+
+.btn-xs, .btn-sm {
+	@include border-radius(14px);
+}
+
+.btn {
+	@include border-radius(16px);
+}
+
+.btn-lg {
+	@include border-radius(22px);
+}
+
+[class^="btn"] {
+	cursor: pointer;
+
+	> span {
+		margin-left: 5px;
+	}
+}
+
+button[disabled] {
+	[class^="btn"] {
+		cursor: default;
+	}
+}
+
+.btn-blue-link-12 {
+	@extend %btn-blue-link;
+	border-radius: 0;
+
+	&:hover, &:focus {
+		@extend %btn-blue-link;
+	}
+}
+
+.btn-blue-link-14, .btn-blue-link {
+	@extend %s14-w700-c1a99aa;
+	line-height: 18px;
+	background: none;
+	border: none;
+	outline: none;
+	padding: 0;
+	border-radius: 0;
+
+	&:hover, &:focus {
+		@extend .btn-blue-link-14;
+	}
+}
+
+.btn-transparent {
+	font-size: 18px;
+	color: $color_eastern_blue !important;
+	background: none;
+	outline: none;
+	border: none;
+	margin-right: 17px;
+	padding: 0;
+
+	&:hover, &:focus, &:active {
+		@extend .btn-transparent;
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.btn-grey-link {
+	@include font(12px, 700,$color_gray, 14px);
+	background: none;
+	border: none;
+	outline: none;
+	padding: 0;
+	border-radius: 0;
+	text-decoration: underline;
+
+	&:hover, &:focus {
+		@extend .btn-grey-link;
+	}
+}
+
+.btn-white-link {
+	@include font(12px, 700,$white, 14px);
+	background: none;
+	border: none;
+	outline: none;
+	padding: 0;
+	border-radius: 0;
+	text-decoration: underline;
+
+	&:hover, &:focus {
+		@extend .btn-white-link;
+	}
+}
+
+.btn-blue {
+	@include button-variant($white,$color_eastern_blue,$color_eastern_blue);
+}
+
+.btn-outline-blue {
+	@include button-outline-variant($color_eastern_blue);
+}

@@ -57,6 +57,30 @@
 	}
 }
 
+
+/* Safai */
+@mixin safariStyles {
+	.class {
+		display: block;
+	}
+}
+
+/* Safari 10.1+ */
+@media not all and (min-resolution:.001dpcm) {
+	@supports (-webkit-appearance : none) {
+		@include safariStyles;
+	}
+}
+
+/* Safari 9 */
+@supports (overflow:-webkit-marquee) and (justify-content:inherit) {
+	@include safariStyles;
+}
+/* IE */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+}
+
 /*horizontal line with text in center*/
 .hl-center-text {
 	font-size: 14px;

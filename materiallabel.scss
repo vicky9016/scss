@@ -1,0 +1,123 @@
+.has-float-label .form-control:placeholder-shown:not(:focus) + * {
+	font-weight: 400;
+	color: $color_dusty_gray;
+	font-style: italic;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.has-float-label {
+	display: block;
+	position: relative;
+
+	label, > span {
+		position: absolute;
+		left: 0;
+		top: 0;
+		cursor: text;
+		font-size: 12px;
+		opacity: 1;
+		-webkit-transition: all .2s;
+		transition: all .2s;
+		top: -0.4em;
+		left: 0.75rem;
+		z-index: 3;
+		line-height: 1;
+		padding: 0 1px;
+
+		&::after {
+			content: " ";
+			display: block;
+			/*position: absolute;*/
+			background: white;
+			height: 0px;
+			top: 50%;
+			left: -.2em;
+			right: -.2em;
+		}
+	}
+
+	label {
+		background: $white;
+		font-size: 10px;
+		font-weight: 700;
+		color: $color_mine_shaft;
+		line-height: 12px;
+		margin-left: -9px;
+	}
+
+	textarea + label {
+		margin-left: 0;
+	}
+
+	.form-control {
+		&::-webkit-input-placeholder, &::placeholder {
+			opacity: 1;
+			-webkit-transition: all .2s;
+			transition: all .2s;
+		}
+
+		&::-moz-placeholder, &:-ms-input-placeholder {
+			opacity: 1;
+			transition: all .2s;
+		}
+
+		&:placeholder-shown:not(:focus) {
+			&::-webkit-input-placeholder, &::-moz-placeholder, &:-ms-input-placeholder, &::placeholder {
+				opacity: 0;
+			}
+
+			& + * {
+				font-size: 14px;
+				opacity: .5;
+				top: .6em;
+			}
+		}
+	}
+}
+
+.input-group .has-float-label {
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	margin-bottom: 0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+
+	.form-control {
+		width: 100%;
+		border-radius: 0;
+	}
+
+	&:not(:last-child), &:not(:last-child) .form-control {
+		border-radius: 0;
+	}
+
+	&:not(:first-child), &:not(:first-child) .form-control {
+		border-radius: 0;
+	}
+
+	&:not(:first-child) label {
+		margin-left: 54%;
+	}
+}
+
+.form-group.has-float-label {
+	margin-bottom: 0;
+
+	textarea {
+		padding-left: 5px;
+		padding-right: 5px;
+		resize: none;
+		overflow: auto;
+	}
+}
